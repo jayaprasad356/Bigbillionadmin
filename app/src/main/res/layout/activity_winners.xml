@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WinnersActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+
+    <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        />
+
+        <Button
+            android:id="@+id/button1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_below="@+id/datePicker1"
+            android:text="Show Winner" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/purple_700"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="60dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prasad"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="40dp"
+                    />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6382088746"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="40dp"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prasad"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="40dp"
+                    />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6382088746"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="40dp"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prasad"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="40dp"
+                    />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6382088746"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="40dp"
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prasad"
+                    android:textColor="@color/primaryColor"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="40dp"
+                    />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6382088746"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="40dp"
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tab_lyt"
+                    android:layout_marginLeft="50dp"
+                    >
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DS"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GB"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GL"
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FD"
+                        />
+
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WithdrawalActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="@color/primaryColor"
+        app:strokeWidth="1dp"
+        android:layout_margin="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Number"
+                        android:gravity="center"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6382088746"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:gravity="center"
+
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Name"
+                        android:gravity="center"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="John"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:gravity="center"
+
+                        />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Withdrawal \nreq"
+                        android:gravity="center"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="500 ₹"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:gravity="center"
+
+                        />
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Pending"
+                android:textColor="@color/primaryColor"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                />
+
+            <Button
+                android:id="@+id/pay_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pay"
+                android:layout_gravity="right"
+                android:layout_margin="10dp"
+                style="?attr/materialButtonOutlinedStyle"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

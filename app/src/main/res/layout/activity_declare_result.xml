@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Declare_resultActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relative_date_lyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/corner">
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            />
+
+        <Button
+            android:id="@+id/button1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/datePicker1"
+            android:layout_centerInParent="true"
+            android:text="Get Date" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:textSize="18dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/relative_date_lyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="2"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="DS Result"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/update_DS"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Update" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="2"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="GB Result"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/update_GB"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Update" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="2"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="GL Result"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/update_GL"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Update" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="2"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="FD Result"
+                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/update_FD"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Update" />
+
+
+
+
+
+
+
+
+        </LinearLayout>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/View"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="VIEW" />
+
+</RelativeLayout>
