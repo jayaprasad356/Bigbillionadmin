@@ -26,4 +26,7 @@
     <color name="primaryTextColor">#ffffff</color>
 
     <color name="secondaryTextColor">#000000</color>
+    <color name="lightred">#c94c48</color>
+    <color name="mildviolet">#bb93e2</color>
+    <color name="lightbluegrey">#a4bac8</color>
 </resources>

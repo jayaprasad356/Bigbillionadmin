@@ -24,6 +24,7 @@
                 android:textColor="@color/black"
                 android:text="Name : "/>
             <TextView
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -42,6 +43,7 @@
                 android:textColor="@color/black"
                 android:text="Mobile Number : "/>
             <TextView
+                android:id="@+id/tvMobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,6 +62,7 @@
                 android:textColor="@color/black"
                 android:text="Points : "/>
             <TextView
+                android:id="@+id/tvPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -78,6 +81,7 @@
                 android:textColor="@color/black"
                 android:text="Earnings : "/>
             <TextView
+                android:id="@+id/tvEarnings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

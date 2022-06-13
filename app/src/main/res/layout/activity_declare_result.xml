@@ -27,26 +27,6 @@
             android:calendarViewShown="false"
             />
 
-        <Button
-            android:id="@+id/button1"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/datePicker1"
-            android:layout_centerInParent="true"
-            android:text="Get Date" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button1"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
-            android:textSize="18dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -64,19 +44,8 @@
             android:orientation="vertical">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            >
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="2"
-                android:layout_marginRight="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="DS Result"
@@ -85,45 +54,16 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ds"
+                    android:maxLength="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:layout_weight="1"
-                android:id="@+id/update_DS"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Update" />
-
-
-
-
-
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-
-            >
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="2"
-                android:layout_marginRight="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="GB Result"
@@ -132,45 +72,16 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gb"
+                    android:maxLength="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:layout_weight="1"
-                android:id="@+id/update_GB"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Update" />
-
-
-
-
-
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-
-            >
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="2"
-                android:layout_marginRight="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="GL Result"
@@ -179,45 +90,16 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gl"
+                    android:maxLength="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:layout_weight="1"
-                android:id="@+id/update_GL"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Update" />
-
-
-
-
-
-
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-
-            >
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="2"
-                android:layout_marginRight="20dp"
+                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="FD Result"
@@ -226,31 +108,23 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fd"
+                    android:maxLength="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
             <Button
-                android:layout_weight="1"
-                android:id="@+id/update_FD"
+                android:id="@+id/postResult"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Update" />
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="Post Result" />
 
-
-
-
-
-
-
-
-        </LinearLayout>
         </LinearLayout>
 
 
@@ -258,16 +132,6 @@
     </RelativeLayout>
 
 
-    <Button
-        android:layout_weight="1"
-        android:id="@+id/View"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:text="VIEW" />
+
 
 </RelativeLayout>

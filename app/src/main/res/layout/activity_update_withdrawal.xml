@@ -5,121 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Update_withdrawalActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Withdrwal"/>
 
-
-    <RelativeLayout
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@drawable/corner"
         >
 
-        <LinearLayout
+        <RadioButton
+            android:id="@+id/rPaid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Amount"
-                android:textSize="16dp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="₹520"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
-            <com.google.android.material.divider.MaterialDivider
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="For"
-                android:textSize="16dp"
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Indian Overseas Bank"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="A/c No. xx1234"
-                android:textSize="14dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="IFCS code : IOBA000xx"
-                android:textSize="14dp"
-                android:textColor="@color/black"
-                android:layout_marginBottom="10dp"
-                />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bank Holder : John"
-                android:textSize="18dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                />
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:layout_height="match_parent"
+            android:text="Paid"/>
+        <RadioButton
+            android:id="@+id/rCancel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
-            android:weightSum="2"
-            android:layout_margin="10dp"
-            >
+            android:layout_height="match_parent"
+            android:text="Cancel"/>
+    </RadioGroup>
 
-        <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Approved"
-            android:layout_marginRight="5dp"
-            style="?attr/materialButtonOutlinedStyle"
-            />
 
-            <Button
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Decline"
-                style="?attr/materialButtonOutlinedStyle"
-                />
-
-        </LinearLayout>
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_below="@id/radioGroup"
+        />
 
 </RelativeLayout>
