@@ -5,21 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.bigbillionadmin.adapter.UsersAdapter;
-import com.example.bigbillionadmin.adapter.WithdrawalAdapter;
 import com.example.bigbillionadmin.helper.ApiConfig;
 import com.example.bigbillionadmin.helper.Constant;
 import com.example.bigbillionadmin.model.Users;
-import com.example.bigbillionadmin.model.Withdrawal;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -30,24 +25,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UsersActivity extends AppCompatActivity {
+public class SearchUserActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     UsersAdapter usersAdapter;
     Activity activity;
     EditText etSearch;
-    ArrayList<Users> transactions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
-        activity = UsersActivity.this;
+        setContentView(R.layout.activity_search_user);
+        activity = SearchUserActivity.this;
         recyclerView = findViewById(R.id.recyclerView);
         etSearch = findViewById(R.id.etSearch);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        usersAdapter = new UsersAdapter(activity, transactions);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -63,22 +56,14 @@ public class UsersActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 if (!editable.toString().equals("")){
                     usersList(editable.toString());
-                }else {
-                    usersList("");
-
                 }
 
             }
         });
-        usersList("");
-
 
     }
-
     private void usersList(String s)
     {
-        transactions.clear();
-        usersAdapter.notifyDataSetChanged();
         Map<String, String> params = new HashMap<>();
         params.put(Constant.SEARCH,s);
         ApiConfig.RequestToVolley((result, response) -> {
@@ -89,7 +74,7 @@ public class UsersActivity extends AppCompatActivity {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-
+                        ArrayList<Users> transactions = new ArrayList<>();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
@@ -99,7 +84,7 @@ public class UsersActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-
+                        usersAdapter = new UsersAdapter(activity, transactions);
                         recyclerView.setAdapter(usersAdapter);
                     }
                     else {
@@ -111,6 +96,6 @@ public class UsersActivity extends AppCompatActivity {
                     Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, activity, Constant.USERS_LIST_URL, params, true);
+        }, activity, Constant.SEARCH_USER_URL, params, true);
     }
 }

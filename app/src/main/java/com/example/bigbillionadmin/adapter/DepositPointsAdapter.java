@@ -1,12 +1,16 @@
 package com.example.bigbillionadmin.adapter;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +47,7 @@ public class DepositPointsAdapter extends RecyclerView.Adapter<RecyclerView.View
         holder.tvMobile.setText(depositPoints1.getMobile());
         holder.tvName.setText(depositPoints1.getName());
         holder.tvPoints.setText(depositPoints1.getPoints());
+        holder.tvDateTime.setText(depositPoints1.getDate_created());
         if (depositPoints1.getStatus().equals("0")){
             holder.tvStatus.setText("Pending");
         }
@@ -54,9 +59,19 @@ public class DepositPointsAdapter extends RecyclerView.Adapter<RecyclerView.View
             holder.tvStatus.setText("Cancelled");
 
         }
-        if (depositPoints1.getStatus().equals("0")){
-            holder.btnUpdate.setVisibility(View.VISIBLE);
-        }
+//        if (depositPoints1.getStatus().equals("0")){
+//            holder.btnUpdate.setVisibility(View.VISIBLE);
+//        }
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Mobile Number", depositPoints1.getMobile());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(activity, "Mobile Number Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
         holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +94,7 @@ public class DepositPointsAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName,tvMobile,tvPoints,tvStatus;
+        TextView tvName,tvMobile,tvPoints,tvStatus,tvDateTime;
         Button btnUpdate;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +103,7 @@ public class DepositPointsAdapter extends RecyclerView.Adapter<RecyclerView.View
             tvMobile = itemView.findViewById(R.id.mobile);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
+            tvDateTime = itemView.findViewById(R.id.tvDateTime);
 
 
         }

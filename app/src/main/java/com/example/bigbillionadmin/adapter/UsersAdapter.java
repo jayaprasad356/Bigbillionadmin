@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bigbillionadmin.ManageWalletActivity;
 import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.Update_withdrawalActivity;
 import com.example.bigbillionadmin.model.Users;
@@ -44,6 +45,14 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         holder.tvName.setText(user.getName());
         holder.tvPoints.setText(user.getPoints());
         holder.tvEarnings.setText(user.getEarn());
+        holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, ManageWalletActivity.class);
+                intent.putExtra("id",user.getId());
+                activity.startActivity(intent);
+            }
+        });
 
 
     }
@@ -59,12 +68,14 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView tvName,tvMobile,tvPoints,tvEarnings;
+        Button btnUpdate;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvMobile = itemView.findViewById(R.id.tvMobile);
             tvPoints = itemView.findViewById(R.id.tvPoints);
             tvEarnings = itemView.findViewById(R.id.tvEarnings);
+            btnUpdate = itemView.findViewById(R.id.btnUpdate);
 
 
 

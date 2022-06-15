@@ -6,27 +6,29 @@ public class Constant {
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String POINTS_LIST_URL = BaseUrl + "pointslist.php";
     public static final String UPDATE_POINTS_URL = BaseUrl + "updatepoints.php";
+    public static final String MANAGE_WALLET_URL = BaseUrl + "managewallet.php";
     public static final String UPDATE_WITHDRAWALS_URL = BaseUrl + "updatewithdrawals.php";
     public static final String WITHDRAWAL_LISTS_URL = BaseUrl + "allwithdrawalslist.php";
     public static final String POST_RESULTS_URL = BaseUrl + "postresults.php";
     public static final String SHARED_POINTS_LIST_URL = BaseUrl + "sharepointlists.php";
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
+    public static final String SEARCH_USER_URL = BaseUrl + "searchuser.php";
     public static final String BIDSLIST_URL = BaseUrl + "bidslist.php";
     public static final String HARUFBIDSLIST_URL = BaseUrl + "harufbidslist.php";
-
-
-
     public static final String MOBILE = "mobile";
     public static final String POINT_ID = "point_id";
+    public static final String DATE = "date";
+    public static final String TYPE = "type";
     public static final String WITHDRAWAL_ID = "withdrawal_id";
     public static final String STATUS = "status";
     public static final String USER_ID = "user_id";
+    public static final String SEARCH = "search";
     public static final String AMOUNT = "amount";
     public static final String MONTH = "month";
     public static final String YEAR = "year";
     public static final String GAME_NAME = "game_name";
     public static final String GAME_TYPE = "game_type";
-    public static final String DATE = "date";
+
     public static final String DS = "DS";
     public static final String GB = "GB";
     public static final String GL = "GL";
@@ -36,6 +38,7 @@ public class Constant {
     public static final String GAME_METHOD = "game_method";
     public static final String NUMBER = "number";
     public static final String POINTS = "points";
+    public static final String REASON = "reason";
     public static final String TOTAL_POINTS = "total_points";
     public static final String Login = "login";
     public static final String ID = "id";

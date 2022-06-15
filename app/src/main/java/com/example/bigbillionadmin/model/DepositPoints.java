@@ -1,18 +1,19 @@
 package com.example.bigbillionadmin.model;
 
 public class DepositPoints {
-    String id,user_id,name,mobile,points,status;
+    String id,user_id,name,mobile,points,status,date_created;
     public DepositPoints(){
 
     }
 
-    public DepositPoints(String id, String user_id, String name, String mobile, String points, String status) {
+    public DepositPoints(String id, String user_id, String name, String mobile, String points, String status, String date_created) {
         this.id = id;
         this.user_id = user_id;
         this.name = name;
         this.mobile = mobile;
         this.points = points;
         this.status = status;
+        this.date_created = date_created;
     }
 
     public String getId() {
@@ -61,5 +62,13 @@ public class DepositPoints {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
     }
 }

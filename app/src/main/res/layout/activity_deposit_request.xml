@@ -5,12 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Deposit_requestActivity">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/deposit_points_lyt" />
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blackstroke"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:drawableStart="@drawable/ic_baseline_date_range_24"
+            android:text="2022-06-15"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/deposit_points_lyt" />
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>
