@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bigbillionadmin.ManageWalletActivity;
 import com.example.bigbillionadmin.R;
+import com.example.bigbillionadmin.TransactionListsActivity;
 import com.example.bigbillionadmin.Update_withdrawalActivity;
+import com.example.bigbillionadmin.helper.Constant;
 import com.example.bigbillionadmin.model.Users;
 import com.example.bigbillionadmin.model.Withdrawal;
 
@@ -53,6 +55,14 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 activity.startActivity(intent);
             }
         });
+        holder.btnTransacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, TransactionListsActivity.class);
+                intent.putExtra(Constant.USER_ID,user.getId());
+                activity.startActivity(intent);
+            }
+        });
 
 
     }
@@ -68,7 +78,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView tvName,tvMobile,tvPoints,tvEarnings;
-        Button btnUpdate;
+        Button btnUpdate,btnTransacion;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
@@ -76,6 +86,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             tvPoints = itemView.findViewById(R.id.tvPoints);
             tvEarnings = itemView.findViewById(R.id.tvEarnings);
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
+            btnTransacion = itemView.findViewById(R.id.btnTransacion);
 
 
 

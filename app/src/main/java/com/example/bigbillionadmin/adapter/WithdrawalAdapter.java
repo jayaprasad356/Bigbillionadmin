@@ -44,6 +44,7 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         holder.tvMobile.setText(withdrawal.getMobile());
         holder.tvName.setText(withdrawal.getName());
         holder.tvPoints.setText(withdrawal.getPoints());
+        holder.tvDateTime.setText(withdrawal.getDate_created());
         if (withdrawal.getStatus().equals("0")){
             holder.tvStatus.setText("Pending");
         }
@@ -79,7 +80,7 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName,tvMobile,tvPoints,tvStatus;
+        TextView tvName,tvMobile,tvPoints,tvStatus,tvDateTime;
         Button btnUpdate;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +89,7 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             tvMobile = itemView.findViewById(R.id.mobile);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
+            tvDateTime = itemView.findViewById(R.id.tvDateTime);
 
 
         }

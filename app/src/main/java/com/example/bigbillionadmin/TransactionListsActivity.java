@@ -1,93 +1,54 @@
 package com.example.bigbillionadmin;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.example.bigbillionadmin.adapter.DepositPointsAdapter;
-import com.example.bigbillionadmin.adapter.WithdrawalAdapter;
+import com.example.bigbillionadmin.adapter.TransactionAdapter;
 import com.example.bigbillionadmin.helper.ApiConfig;
 import com.example.bigbillionadmin.helper.Constant;
-import com.example.bigbillionadmin.model.DepositPoints;
-import com.example.bigbillionadmin.model.Withdrawal;
+import com.example.bigbillionadmin.helper.Session;
+import com.example.bigbillionadmin.model.Transaction;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class WithdrawalActivity extends AppCompatActivity {
-
+public class TransactionListsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    WithdrawalAdapter withdrawalAdapter;
+    TransactionAdapter transactionAdapter;
     Activity activity;
-    String format = "%1$02d";
-    DatePicker picker;
-    String date;
-    String day,month,year;
-    Button btnSubmit;
-    ArrayList<Withdrawal> transactions = new ArrayList<>();
+    Session session;
+    String UserId;
 
-
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_withdrawal);
-        activity = WithdrawalActivity.this;
+        setContentView(R.layout.activity_transaction_lists);
+        activity = TransactionListsActivity.this;
+        session = new Session(activity);
         recyclerView = findViewById(R.id.recyclerView);
-        btnSubmit = findViewById(R.id.btnSubmit);
-        picker=(DatePicker)findViewById(R.id.datePicker1);
+        UserId = getIntent().getStringExtra(Constant.USER_ID);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        LocalDate dateObj = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        date = dateObj.format(formatter);
-        withdrawalAdapter = new WithdrawalAdapter(activity, transactions);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                day = ""+picker.getDayOfMonth();
-                day = String.format(format, Long.parseLong(day));
-                month = ""+(picker.getMonth() + 1);
-                month = String.format(format, Long.parseLong(month));
-                year = ""+picker.getYear();
-                year = String.format(format, Long.parseLong(year));
-                date = year +"-"+month + "-"+day;
-                withdrwalList();
-                Log.d("DEP_DATE",date);
-            }
-        });
-        withdrwalList();
-
-
-
+        transactionList();
     }
-
-    private void withdrwalList()
+    private void transactionList()
     {
-        transactions.clear();
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.DATE,date);
+        params.put(Constant.USER_ID,UserId);
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
@@ -96,28 +57,28 @@ public class WithdrawalActivity extends AppCompatActivity {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-
+                        ArrayList<Transaction> transactions = new ArrayList<>();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                Withdrawal group = g.fromJson(jsonObject1.toString(), Withdrawal.class);
+                                Transaction group = g.fromJson(jsonObject1.toString(), Transaction.class);
                                 transactions.add(group);
                             } else {
                                 break;
                             }
                         }
-
+                        transactionAdapter = new TransactionAdapter(activity, transactions);
+                        recyclerView.setAdapter(transactionAdapter);
                     }
                     else {
                         Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
                     }
-                    recyclerView.setAdapter(withdrawalAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, activity, Constant.WITHDRAWAL_LISTS_URL, params, true);
+        }, activity, Constant.TRANSLISTS_URL, params, true);
     }
 }

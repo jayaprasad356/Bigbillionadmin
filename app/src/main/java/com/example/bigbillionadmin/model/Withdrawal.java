@@ -1,17 +1,18 @@
 package com.example.bigbillionadmin.model;
 
 public class Withdrawal {
-    String id,name,mobile,points,status;
+    String id,name,mobile,points,status,date_created;
     public Withdrawal(){
 
     }
 
-    public Withdrawal(String id, String name, String mobile, String points, String status) {
+    public Withdrawal(String id, String name, String mobile, String points, String status, String date_created) {
         this.id = id;
         this.name = name;
         this.mobile = mobile;
         this.points = points;
         this.status = status;
+        this.date_created = date_created;
     }
 
     public String getId() {
@@ -52,5 +53,13 @@ public class Withdrawal {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(String date_created) {
+        this.date_created = date_created;
     }
 }

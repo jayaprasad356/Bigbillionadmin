@@ -25,10 +25,11 @@
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_settings.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_sharing_points.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_show_biddins.xml" value="0.128515625" />
+        <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_transaction_lists.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_update_deposit.xml" value="0.16666666666666666" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_update_withdrawal.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_users.xml" value="0.17135416666666667" />
-        <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_winners.xml" value="0.17135416666666667" />
+        <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_winners.xml" value="0.14666666666666667" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/activity_withdrawal.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/bid_lyt.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/bids_lyt.xml" value="0.128515625" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/haruf_bids_lyt.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/share_lyt.xml" value="0.22" />
+        <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/transaction_lyt.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/user_lyt.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/layout/withdrawal_lyt.xml" value="0.128515625" />
         <entry key="..\:/Studio Projects/Bigbillionadmin/app/src/main/res/menu/activity_main_drawer.xml" value="0.17135416666666667" />

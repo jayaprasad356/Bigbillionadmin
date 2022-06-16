@@ -9,50 +9,51 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Maximum Withdrawal Limit"
+        android:hint="WhatsApp Number"
         android:layout_margin="20dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/whatsapp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="20"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Minimum Deposit Limit"
+        android:hint="Youtube Link"
         android:layout_margin="20dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
-
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/youtube"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="20"
             />
-
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contact Number"
+        android:hint="UPI"
         android:layout_margin="20dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/upi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="987654310"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

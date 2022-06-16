@@ -6,6 +6,8 @@ public class Constant {
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String POINTS_LIST_URL = BaseUrl + "pointslist.php";
     public static final String UPDATE_POINTS_URL = BaseUrl + "updatepoints.php";
+    public static final String UPDATE_SETTINGS_URL = BaseUrl + "update_settings.php";
+    public static final String SETTINGS_URL = BaseUrl + "settings.php";
     public static final String MANAGE_WALLET_URL = BaseUrl + "managewallet.php";
     public static final String UPDATE_WITHDRAWALS_URL = BaseUrl + "updatewithdrawals.php";
     public static final String WITHDRAWAL_LISTS_URL = BaseUrl + "allwithdrawalslist.php";
@@ -21,10 +23,14 @@ public class Constant {
     public static final String TYPE = "type";
     public static final String WITHDRAWAL_ID = "withdrawal_id";
     public static final String STATUS = "status";
+    public static final String WHATSAPP_NUM = "whatspp_number";
+    public static final String YOUTUBE_LINK = "youtube_link";
+    public static final String UPI = "upi";
     public static final String USER_ID = "user_id";
     public static final String SEARCH = "search";
     public static final String AMOUNT = "amount";
     public static final String MONTH = "month";
+    public static final String TRANSLISTS_URL = BaseUrl + "translists.php";
     public static final String YEAR = "year";
     public static final String GAME_NAME = "game_name";
     public static final String GAME_TYPE = "game_type";

@@ -42,6 +42,7 @@ public class SharePointsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         holder.mobile.setText(sharePoints1.getMobile());
         holder.shared_mobile.setText(sharePoints1.getShared_mobile());
         holder.points.setText(sharePoints1.getPoints());
+        holder.tvDateTime.setText(sharePoints1.getDate_created());
 
 
     }
@@ -56,12 +57,13 @@ public class SharePointsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
-        TextView mobile,shared_mobile,points;
+        TextView mobile,shared_mobile,points,tvDateTime;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
             mobile = itemView.findViewById(R.id.mobile);
             shared_mobile = itemView.findViewById(R.id.shared_mobile);
             points = itemView.findViewById(R.id.points);
+            tvDateTime = itemView.findViewById(R.id.tvDateTime);
 
 
         }

@@ -60,6 +60,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:usesCleartextTraffic">
         <activity
+            android:name=".TransactionListsActivity"
+            android:exported="false" />
+        <activity
             android:name=".SearchUserActivity"
             android:exported="false" />
         <activity

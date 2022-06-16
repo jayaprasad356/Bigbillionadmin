@@ -43,10 +43,12 @@ public class Deposit_requestActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DepositPointsAdapter depositPointsAdapter;
     Activity activity;
-    TextView tvDate;
+    Button btnSubmit;
     String date;
-    final Calendar myCalendar = Calendar.getInstance();
+    String day,month,year;
     ArrayList<DepositPoints> transactions = new ArrayList<>();
+    String format = "%1$02d";
+    DatePicker picker;
 
 
 
@@ -57,44 +59,32 @@ public class Deposit_requestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_deposit_request);
         activity = Deposit_requestActivity.this;
         recyclerView = findViewById(R.id.recyclerView);
-        tvDate = findViewById(R.id.tvDate);
+        btnSubmit = findViewById(R.id.btnSubmit);
+        picker=(DatePicker)findViewById(R.id.datePicker1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
+        depositPointsAdapter = new DepositPointsAdapter(activity, transactions);
         LocalDate dateObj = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         date = dateObj.format(formatter);
-        tvDate.setOnClickListener(new View.OnClickListener() {
+
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog=  new DatePickerDialog(activity,R.style.Theme_Bigbillionadmin, datepick, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH));
-                datePickerDialog.show();
-
+                day = ""+picker.getDayOfMonth();
+                day = String.format(format, Long.parseLong(day));
+                month = ""+(picker.getMonth() + 1);
+                month = String.format(format, Long.parseLong(month));
+                year = ""+picker.getYear();
+                year = String.format(format, Long.parseLong(year));
+                date = year +"-"+month + "-"+day;
+                depositList();
             }
         });
         depositList();
     }
-    DatePickerDialog.OnDateSetListener datepick = new DatePickerDialog.OnDateSetListener() {
-
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, monthOfYear);
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            monthOfYear = monthOfYear + 1;
-            NumberFormat f = new DecimalFormat("00");
-            String format = "%1$02d"; // two digits
-            String month = String.format(format, monthOfYear);
-            String day = String.format(format, dayOfMonth);
-
-            tvDate.setText(year +"-"+month + "-"+day);
-            date = tvDate.getText().toString().trim();
-            depositList();
-        }
-    };
-
     private void depositList()
     {
         transactions.clear();
@@ -118,12 +108,13 @@ public class Deposit_requestActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        depositPointsAdapter = new DepositPointsAdapter(activity, transactions);
-                        recyclerView.setAdapter(depositPointsAdapter);
+
+
                     }
                     else {
                         Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
                     }
+                    recyclerView.setAdapter(depositPointsAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
