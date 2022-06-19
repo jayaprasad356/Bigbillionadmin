@@ -12,6 +12,9 @@ public class Constant {
     public static final String UPDATE_WITHDRAWALS_URL = BaseUrl + "updatewithdrawals.php";
     public static final String WITHDRAWAL_LISTS_URL = BaseUrl + "allwithdrawalslist.php";
     public static final String POST_RESULTS_URL = BaseUrl + "postresults.php";
+    public static final String RESULT_LIST_URL = BaseUrl + "resultlist.php";
+    public static final String ADD_RESULT_URL = BaseUrl + "add_result.php";
+    public static final String DELETE_RESULT_URL = BaseUrl + "delete_result.php";
     public static final String SHARED_POINTS_LIST_URL = BaseUrl + "sharepointlists.php";
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
     public static final String SEARCH_USER_URL = BaseUrl + "searchuser.php";
@@ -51,12 +54,14 @@ public class Constant {
     public static final String NAME = "name";
     public static final String EARN = "earn";
     public static final String SUCCESS = "success";
+    public static final String RESULT = "result";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";
     public static final String ACCOUNT_NO = "account_number";
     public static final String IFSC_CODE = "ifsc_code";
     public static final String HOLDER_NAME = "holder_name";
     public static final String GPAY = "gpay";
+    public static final String PAYTM = "paytm";
     public static final String PHONEPE = "phonepe";
 
 

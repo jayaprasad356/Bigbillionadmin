@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.Update_depositActivity;
 import com.example.bigbillionadmin.Update_withdrawalActivity;
+import com.example.bigbillionadmin.helper.Constant;
 import com.example.bigbillionadmin.model.DepositPoints;
 import com.example.bigbillionadmin.model.Withdrawal;
 
@@ -64,6 +65,11 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             public void onClick(View view) {
                 Intent intent = new Intent(activity, Update_withdrawalActivity.class);
                 intent.putExtra("id",withdrawal.getId());
+                intent.putExtra(Constant.ACCOUNT_NO,withdrawal.getAccount_number());
+                intent.putExtra(Constant.IFSC_CODE,withdrawal.getIfsc_code());
+                intent.putExtra(Constant.HOLDER_NAME,withdrawal.getHolder_name());
+                intent.putExtra(Constant.PAYTM,withdrawal.getPaytm());
+                intent.putExtra(Constant.PHONEPE,withdrawal.getPhonepe());
                 activity.startActivity(intent);
             }
         });

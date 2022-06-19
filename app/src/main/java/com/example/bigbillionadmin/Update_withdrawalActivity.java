@@ -3,12 +3,16 @@ package com.example.bigbillionadmin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bigbillionadmin.helper.ApiConfig;
@@ -25,16 +29,80 @@ public class Update_withdrawalActivity extends AppCompatActivity {
     RadioButton rPaid,rCancel;
     String Id;
     Activity activity;
+    TextView tvAccountNumber,tvIFSC,tvHolderName,tvPaytm,tvPhonepe;
+    String tvAccountNumber_,tvIFSC_,tvHolderName_,tvPaytm_,tvPhonepe_;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_withdrawal);
+        activity = Update_withdrawalActivity.this;
         Id = getIntent().getStringExtra("id");
+        tvAccountNumber_ = getIntent().getStringExtra(Constant.ACCOUNT_NO);
+        tvIFSC_ = getIntent().getStringExtra(Constant.IFSC_CODE);
+        tvHolderName_ = getIntent().getStringExtra(Constant.HOLDER_NAME);
+        tvPaytm_ = getIntent().getStringExtra(Constant.PAYTM);
+        tvPhonepe_ = getIntent().getStringExtra(Constant.PHONEPE);
         btnUpdate = findViewById(R.id.btnUpdate);
         rPaid = findViewById(R.id.rPaid);
         rCancel = findViewById(R.id.rCancel);
-        activity = Update_withdrawalActivity.this;
+        tvAccountNumber = findViewById(R.id.tvAccountNumber);
+        tvIFSC = findViewById(R.id.tvIFSC);
+        tvHolderName = findViewById(R.id.tvHolderName);
+        tvPaytm = findViewById(R.id.tvPaytm);
+        tvPhonepe = findViewById(R.id.tvPhonepe);
+        tvAccountNumber.setText(tvAccountNumber_);
+        tvIFSC.setText(tvIFSC_);
+        tvHolderName.setText(tvHolderName_);
+        tvPaytm.setText(tvPaytm_);
+        tvPhonepe.setText(tvPhonepe_);
+
+        tvAccountNumber.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", tvAccountNumber_);
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
+        tvIFSC.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", tvIFSC_);
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
+        tvHolderName.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", tvHolderName_);
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
+        tvPaytm.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", tvPaytm_);
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
+        tvPhonepe.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("", tvPhonepe_);
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
+
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +134,6 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         params.put(Constant.STATUS, Status);
         params.put(Constant.WITHDRAWAL_ID, Id);
         ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("WITH_RES",response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
