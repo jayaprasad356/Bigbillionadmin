@@ -12,6 +12,7 @@ public class Constant {
     public static final String UPDATE_WITHDRAWALS_URL = BaseUrl + "updatewithdrawals.php";
     public static final String WITHDRAWAL_LISTS_URL = BaseUrl + "allwithdrawalslist.php";
     public static final String POST_RESULTS_URL = BaseUrl + "postresults.php";
+    public static final String ALL_RESULT_URL = BaseUrl + "all_result.php";
     public static final String RESULT_LIST_URL = BaseUrl + "resultlist.php";
     public static final String ADD_RESULT_URL = BaseUrl + "add_result.php";
     public static final String DELETE_RESULT_URL = BaseUrl + "delete_result.php";

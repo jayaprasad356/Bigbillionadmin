@@ -5,132 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Declare_resultActivity">
-
-
-    <RelativeLayout
-        android:id="@+id/relative_date_lyt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/corner">
-
+        android:orientation="vertical">
         <DatePicker
             android:id="@+id/datePicker1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:datePickerMode="spinner"
             android:calendarViewShown="false"
             />
 
+        <Spinner
+            android:id="@+id/spinGame"
+            android:layout_width="150dp"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/whitebackgroundcruve"
+            />
 
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_below="@+id/relative_date_lyt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnResult"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="DS Result"
-                android:layout_gravity="center"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ds"
-                    android:maxLength="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="GB Result"
-                android:layout_gravity="center"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/gb"
-                    android:maxLength="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="GL Result"
-                android:layout_gravity="center"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/gl"
-                    android:maxLength="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="FD Result"
-                android:layout_gravity="center"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fd"
-                    android:maxLength="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:id="@+id/postResult"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimen_20dp"
-                android:text="Post Result" />
-
-        </LinearLayout>
-
-
-
-    </RelativeLayout>
-
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="Show Result" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             />
+    </LinearLayout>
 
 
 

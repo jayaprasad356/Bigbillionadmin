@@ -9,16 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-<!--        <Button-->
-<!--            android:id="@+id/search"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Search User"-->
-<!--            android:drawableEnd="@drawable/ic_baseline_search_24"-->
-<!--            android:backgroundTint="@color/teal_700"-->
-<!--            android:layout_gravity="end"-->
-<!--            android:layout_marginEnd="5dp"-->
-<!--            />-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"

@@ -84,8 +84,8 @@ public class HomeActivity extends AppCompatActivity {
         winners.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, WinnersActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(activity, WinnersActivity.class);
+//                startActivity(intent);
 
             }
         });

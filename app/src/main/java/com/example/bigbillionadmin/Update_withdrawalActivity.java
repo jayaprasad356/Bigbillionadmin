@@ -60,6 +60,7 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         tvAccountNumber.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(activity, "Copy to Clipboard", Toast.LENGTH_SHORT).show();
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", tvAccountNumber_);
                 clipboard.setPrimaryClip(clip);
@@ -69,6 +70,8 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         tvIFSC.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(activity, "Copy to Clipboard", Toast.LENGTH_SHORT).show();
+
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", tvIFSC_);
                 clipboard.setPrimaryClip(clip);
@@ -78,6 +81,8 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         tvHolderName.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(activity, "Copy to Clipboard", Toast.LENGTH_SHORT).show();
+
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", tvHolderName_);
                 clipboard.setPrimaryClip(clip);
@@ -87,6 +92,8 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         tvPaytm.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(activity, "Copy to Clipboard", Toast.LENGTH_SHORT).show();
+
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", tvPaytm_);
                 clipboard.setPrimaryClip(clip);
@@ -96,6 +103,8 @@ public class Update_withdrawalActivity extends AppCompatActivity {
         tvPhonepe.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(activity, "Copy to Clipboard", Toast.LENGTH_SHORT).show();
+
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("", tvPhonepe_);
                 clipboard.setPrimaryClip(clip);
