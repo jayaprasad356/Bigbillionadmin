@@ -11,29 +11,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bigbillionadmin.Declare_resultActivity;
 import com.example.bigbillionadmin.ManageWalletActivity;
 import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.TransactionListsActivity;
 import com.example.bigbillionadmin.helper.Constant;
-import com.example.bigbillionadmin.model.Results;
 import com.example.bigbillionadmin.model.Users;
+import com.example.bigbillionadmin.model.Winners;
 
 import java.util.ArrayList;
 
 
-public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class WinnersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
-    final ArrayList<Results> results;
+    final ArrayList<Winners> winners;
 
-    public ResultsAdapter(Activity activity, ArrayList<Results> results) {
+    public WinnersAdapter(Activity activity, ArrayList<Winners> winners) {
         this.activity = activity;
-        this.results = results;
+        this.winners = winners;
     }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.result_lyt, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.winner_lyt, parent, false);
         return new ItemHolder(view);
     }
 
@@ -41,15 +40,14 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ItemHolder holder = (ItemHolder) holderParent;
-        final Results result = results.get(position);
-        holder.tvDate.setText(result.getDate());
-        holder.tvGame.setText(result.getGame_name());
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((Declare_resultActivity)activity).showResult(result.getGame_name(),result.getDate());
-            }
-        });
+        final Winners winner = winners.get(position);
+        holder.tvMobile.setText(winner.getMobile());
+        holder.tvName.setText(winner.getName());
+        holder.tvPoints.setText(winner.getPoints());
+        holder.tvBid.setText(winner.getResult());
+        holder.tvDate.setText(winner.getDate());
+        holder.tvGame.setText(winner.getGame_name());
+
     }
     @Override
     public int getItemViewType(int position) {
@@ -57,17 +55,22 @@ public class ResultsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
     @Override
     public int getItemCount() {
-        return results.size();
+        return winners.size();
     }
 
     static class ItemHolder extends RecyclerView.ViewHolder {
-        TextView tvDate,tvGame;
-        Button btnDelete;
+
+        TextView tvName,tvMobile,tvPoints,tvBid,tvDate,tvGame;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
+            tvName = itemView.findViewById(R.id.tvName);
+            tvMobile = itemView.findViewById(R.id.tvMobile);
+            tvPoints = itemView.findViewById(R.id.tvPoints);
+            tvBid = itemView.findViewById(R.id.tvBid);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvGame = itemView.findViewById(R.id.tvGame);
-            btnDelete = itemView.findViewById(R.id.btnDelete);
+
+
         }
     }
 }

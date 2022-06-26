@@ -1,8 +1,8 @@
 package com.example.bigbillionadmin.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "http://bigbillionenterprises.co.in/";
-    //public static final String MainBaseUrl = "http://192.168.43.38/bigbillion/";
+    //public static final String MainBaseUrl = "http://bigbillionenterprises.co.in/";
+    public static final String MainBaseUrl = "http://192.168.43.38/bigbillion/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String POINTS_LIST_URL = BaseUrl + "pointslist.php";
     public static final String UPDATE_POINTS_URL = BaseUrl + "updatepoints.php";
@@ -18,6 +18,9 @@ public class Constant {
     public static final String DELETE_RESULT_URL = BaseUrl + "delete_result.php";
     public static final String SHARED_POINTS_LIST_URL = BaseUrl + "sharepointlists.php";
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
+    public static final String WINNER_LIST_URL = BaseUrl + "winnerlist.php";
+    public static final String BIDS_USER_URL = BaseUrl + "bidsuserlist.php";
+    public static final String DELETE_BIDS_URL = BaseUrl + "deletebid.php";
     public static final String SEARCH_USER_URL = BaseUrl + "searchuser.php";
     public static final String BIDSLIST_URL = BaseUrl + "bidslist.php";
     public static final String HARUFBIDSLIST_URL = BaseUrl + "harufbidslist.php";

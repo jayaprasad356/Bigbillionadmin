@@ -98,29 +98,8 @@ public class Declare_resultActivity extends AppCompatActivity {
                     year = String.format(format, Long.parseLong(year));
                     date = year +"-"+month + "-"+day;
 
-                    Map<String, String> params = new HashMap<>();
-                    params.put(Constant.DATE, date);
-                    params.put(Constant.GAME_NAME, spinGameName);
-                    ApiConfig.RequestToVolley((result, response) -> {
-                        if (result) {
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                                    deleteResultDialogue(jsonObject.getString(Constant.RESULT),jsonObject.getString(Constant.ID));
-                                } else {
-                                    addResultDialogue();
-                                }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                    showResult(spinGameName,date);
 
-
-                        } else {
-                            Toast.makeText(activity, String.valueOf(response) + String.valueOf(result), Toast.LENGTH_SHORT).show();
-
-                        }
-                        //pass url
-                    }, activity, Constant.RESULT_LIST_URL, params, true);
 
 
                 }
@@ -129,6 +108,35 @@ public class Declare_resultActivity extends AppCompatActivity {
         });
 
     }
+
+    public void showResult(String spinGameName, String date)
+    {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.DATE, date);
+        params.put(Constant.GAME_NAME, spinGameName);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        deleteResultDialogue(jsonObject.getString(Constant.RESULT),jsonObject.getString(Constant.ID));
+                    } else {
+                        addResultDialogue();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            } else {
+                Toast.makeText(activity, String.valueOf(response) + String.valueOf(result), Toast.LENGTH_SHORT).show();
+
+            }
+            //pass url
+        }, activity, Constant.RESULT_LIST_URL, params, true);
+
+    }
+
     private void resultsList()
     {
         results.clear();
@@ -188,6 +196,9 @@ public class Declare_resultActivity extends AppCompatActivity {
                                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                                         dialog.cancel();
                                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(activity,HomeActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
