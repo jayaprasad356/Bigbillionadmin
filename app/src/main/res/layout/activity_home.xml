@@ -434,6 +434,105 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:padding="@dimen/dimen_20dp"
+                    android:src="@drawable/all"/>
+
+                <RelativeLayout
+                    android:id="@+id/all_biddings"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/box1"
+                    android:padding="@dimen/dimen_10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All Biddings"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_50dp"
+                        android:layout_marginEnd="@dimen/dimen_10dp"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_50dp"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:padding="@dimen/dimen_20dp"
+                    android:src="@drawable/help"/>
+
+                <RelativeLayout
+                    android:id="@+id/help"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:background="@drawable/box2"
+                    android:padding="@dimen/dimen_10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_10dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_marginEnd="@dimen/dimen_10dp"
+                        android:layout_marginBottom="@dimen/dimen_10dp"
+                        android:text="Help"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="@dimen/dimen_30dp"
+                        android:layout_marginTop="@dimen/dimen_50dp"
+                        android:layout_marginEnd="@dimen/dimen_10dp"
+                        android:text="4"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimen_50dp"
+                        android:textStyle="bold"
+                        android:visibility="invisible" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

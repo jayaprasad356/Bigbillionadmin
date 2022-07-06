@@ -1,8 +1,8 @@
 package com.example.bigbillionadmin.helper;
 
 public class Constant {
-    //public static final String MainBaseUrl = "http://bigbillionenterprises.co.in/";
-    public static final String MainBaseUrl = "http://192.168.43.38/bigbillion/";
+    public static final String MainBaseUrl = "http://bigbillionenterprises.co.in/";
+    //public static final String MainBaseUrl = "http://192.168.43.38/bigbillion/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String POINTS_LIST_URL = BaseUrl + "pointslist.php";
     public static final String UPDATE_POINTS_URL = BaseUrl + "updatepoints.php";
@@ -20,6 +20,7 @@ public class Constant {
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
     public static final String WINNER_LIST_URL = BaseUrl + "winnerlist.php";
     public static final String BIDS_USER_URL = BaseUrl + "bidsuserlist.php";
+    public static final String ALL_BIDS_URL = BaseUrl + "allbids.php";
     public static final String DELETE_BIDS_URL = BaseUrl + "deletebid.php";
     public static final String SEARCH_USER_URL = BaseUrl + "searchuser.php";
     public static final String BIDSLIST_URL = BaseUrl + "bidslist.php";
@@ -33,6 +34,7 @@ public class Constant {
     public static final String WHATSAPP_NUM = "whatspp_number";
     public static final String YOUTUBE_LINK = "youtube_link";
     public static final String UPI = "upi";
+    public static final String NEWSINFO = "newsinfo";
     public static final String USER_ID = "user_id";
     public static final String SEARCH = "search";
     public static final String AMOUNT = "amount";
@@ -58,6 +60,11 @@ public class Constant {
     public static final String NAME = "name";
     public static final String EARN = "earn";
     public static final String SUCCESS = "success";
+    public static final String TOTALUSERS = "total_users";
+    public static final String JODI = "jodi";
+    public static final String ODDEVEN = "odd_even";
+    public static final String QUICKCROSS= "quick_cross";
+    public static final String HARUF = "haruf";
     public static final String RESULT = "result";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";

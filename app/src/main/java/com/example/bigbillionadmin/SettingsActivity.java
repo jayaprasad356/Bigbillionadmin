@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
-    EditText whatsapp,youtube,upi;
+    EditText whatsapp,youtube,upi,newsinfo;
     Button btnUpdate;
     Activity activity;
     Session session;
@@ -36,10 +36,12 @@ public class SettingsActivity extends AppCompatActivity {
         whatsapp = findViewById(R.id.whatsapp);
         youtube = findViewById(R.id.youtube);
         upi = findViewById(R.id.upi);
+        newsinfo = findViewById(R.id.newsinfo);
         btnUpdate = findViewById(R.id.btnUpdate);
         whatsapp.setText(session.getData(Constant.WHATSAPP_NUM));
         youtube.setText(session.getData(Constant.YOUTUBE_LINK));
         upi.setText(session.getData(Constant.UPI));
+        newsinfo.setText(session.getData(Constant.NEWSINFO));
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
         params.put(Constant.WHATSAPP_NUM, whatsapp.getText().toString().trim());
         params.put(Constant.YOUTUBE_LINK, youtube.getText().toString().trim());
         params.put(Constant.UPI, upi.getText().toString().trim());
+        params.put(Constant.NEWSINFO, newsinfo.getText().toString().trim());
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
@@ -63,6 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
                         session.setData(Constant.WHATSAPP_NUM,jsonArray.getJSONObject(0).getString(Constant.WHATSAPP_NUM));
                         session.setData(Constant.YOUTUBE_LINK,jsonArray.getJSONObject(0).getString(Constant.YOUTUBE_LINK));
                         session.setData(Constant.UPI,jsonArray.getJSONObject(0).getString(Constant.UPI));
+                        session.setData(Constant.NEWSINFO,jsonArray.getJSONObject(0).getString(Constant.NEWSINFO));
                         Toast.makeText(this, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(activity, HomeActivity.class);
                         startActivity(intent);

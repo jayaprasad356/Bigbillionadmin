@@ -46,7 +46,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         holder.tvMobile.setText(user.getMobile());
         holder.tvName.setText(user.getName());
         holder.tvPoints.setText(user.getPoints());
-        holder.tvEarnings.setText(user.getEarn());
+        holder.tvDateTime.setText(user.getDate_created());
         holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,14 +77,14 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
-        TextView tvName,tvMobile,tvPoints,tvEarnings;
+        TextView tvName,tvMobile,tvPoints,tvDateTime;
         Button btnUpdate,btnTransacion;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
             tvMobile = itemView.findViewById(R.id.tvMobile);
             tvPoints = itemView.findViewById(R.id.tvPoints);
-            tvEarnings = itemView.findViewById(R.id.tvEarnings);
+            tvDateTime = itemView.findViewById(R.id.tvDateTime);
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
             btnTransacion = itemView.findViewById(R.id.btnTransacion);
 

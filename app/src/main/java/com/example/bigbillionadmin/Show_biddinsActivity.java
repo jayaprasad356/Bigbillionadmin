@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bigbillionadmin.adapter.BiddingUsersAdapter;
@@ -46,6 +47,7 @@ public class Show_biddinsActivity extends AppCompatActivity {
     ArrayList<Users> transactions = new ArrayList<>();
     BiddingUsersAdapter biddingUsersAdapter;
     RecyclerView recyclerView;
+    TextView tvUsers,tvPoints;
 
 
 
@@ -58,6 +60,8 @@ public class Show_biddinsActivity extends AppCompatActivity {
         btnResult=findViewById(R.id.btnResult);
         recyclerView=findViewById(R.id.recyclerView);
         spinGame=findViewById(R.id.spinGame);
+        tvUsers=findViewById(R.id.tvUsers);
+        tvPoints=findViewById(R.id.tvPoints);
         Functions.setData(activity,spinGame);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -117,10 +121,11 @@ public class Show_biddinsActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        tvUsers.setText("Users \n"+jsonObject.getString(Constant.TOTALUSERS));
+                        tvPoints.setText("Total Points \n"+jsonObject.getString(Constant.TOTAL_POINTS));
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {

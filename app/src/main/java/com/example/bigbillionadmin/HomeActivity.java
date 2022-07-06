@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
-    RelativeLayout deposit_req,withdrawal,declare_result,show_biddings,sharing_point,winners,users,settings;
+    RelativeLayout deposit_req,withdrawal,declare_result,show_biddings,sharing_point,winners,users,settings,all_biddings;
     Activity activity;
     Session session;
 
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         winners = findViewById(R.id.winners);
         users = findViewById(R.id.users);
         settings = findViewById(R.id.settings);
+        all_biddings = findViewById(R.id.all_biddings);
 
         deposit_req.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +107,15 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+        all_biddings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, All_biddingsActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override

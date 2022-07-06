@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bigbillionadmin.adapter.UsersAdapter;
@@ -36,6 +37,7 @@ public class UsersActivity extends AppCompatActivity {
     Activity activity;
     EditText etSearch;
     ArrayList<Users> transactions = new ArrayList<>();
+    TextView tvTotalUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class UsersActivity extends AppCompatActivity {
         activity = UsersActivity.this;
         recyclerView = findViewById(R.id.recyclerView);
         etSearch = findViewById(R.id.etSearch);
+        tvTotalUsers = findViewById(R.id.tvTotalUsers);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -86,6 +89,7 @@ public class UsersActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        tvTotalUsers.setText("No. Of Users = "+jsonObject.getString(Constant.TOTALUSERS));
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
