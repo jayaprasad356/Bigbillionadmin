@@ -25,6 +25,8 @@ public class Constant {
     public static final String SEARCH_USER_URL = BaseUrl + "searchuser.php";
     public static final String BIDSLIST_URL = BaseUrl + "bidslist.php";
     public static final String HARUFBIDSLIST_URL = BaseUrl + "harufbidslist.php";
+    public static final String ALLHARUFBIDSLIST_URL = BaseUrl + "allharufbids.php";
+    public static final String COUNTBIDSLIST_URL = BaseUrl + "allbids_count.php";
     public static final String MOBILE = "mobile";
     public static final String POINT_ID = "point_id";
     public static final String DATE = "date";

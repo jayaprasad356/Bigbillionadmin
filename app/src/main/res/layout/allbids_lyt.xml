@@ -3,43 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
     <LinearLayout
-        android:layout_gravity="center"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/tvNumber"
-            android:layout_width="150dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:layout_marginStart="@dimen/dimen_10dp"
+            android:text="0"
+            android:layout_marginStart="10dp"
             android:gravity="center"
             android:textColor="@color/black"
             />
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAndar"
+            android:layout_marginStart="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvBahar"
+            android:layout_marginStart="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:id="@+id/tvPoints"
+            android:layout_marginStart="10dp"
             android:textSize="20dp"
-            android:layout_marginStart="@dimen/dimen_10dp"
             android:gravity="center"
+            android:text="0"
             android:textColor="@color/black"
             />
 
-
     </LinearLayout>
-    <TextView
-        android:visibility="gone"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvGameType"
-        android:textSize="12dp"
-        android:layout_marginStart="@dimen/dimen_10dp"
-        android:textColor="@color/black"
-        />
 
 
 </LinearLayout>

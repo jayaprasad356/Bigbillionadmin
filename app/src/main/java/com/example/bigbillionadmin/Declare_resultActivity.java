@@ -259,6 +259,7 @@ public class Declare_resultActivity extends AppCompatActivity {
         params.put(Constant.YEAR, year);
         params.put(Constant.GAME_NAME, spinGameName);
         ApiConfig.RequestToVolley((result, response) -> {
+            Log.d("ANNOUNCE_RESULT",response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
