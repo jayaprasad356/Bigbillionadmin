@@ -32,11 +32,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class BidsHistoryActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -44,6 +48,7 @@ public class BidsHistoryActivity extends AppCompatActivity {
     Activity activity;
     Button btnSubmit;
     Spinner spinGame,spinDay;
+    Session session;
     String date;
     LinearLayout bidsl1;
     ArrayList<BIDS> bids = new ArrayList<>();
@@ -57,6 +62,10 @@ public class BidsHistoryActivity extends AppCompatActivity {
     ArrayList<String> baharnum = new ArrayList<>();
     ArrayList<BIDS> bids2 = new ArrayList<>();
     String innerresponse = "";
+    boolean harufbid = false;
+    boolean allbid = false;
+    boolean deletestatus = false;
+    Date gameTime_date,currentTime_date;
     String Id;
 
     @Override
@@ -65,7 +74,7 @@ public class BidsHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bids_history);
         activity = BidsHistoryActivity.this;
         Id = getIntent().getStringExtra("id");
-        activity = BidsHistoryActivity.this;
+        session = new Session(activity);
 
         bidsl1 = findViewById(R.id.bidsl1);
         recyclerView = findViewById(R.id.recyclerView);
@@ -120,6 +129,7 @@ public class BidsHistoryActivity extends AppCompatActivity {
         });
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +143,9 @@ public class BidsHistoryActivity extends AppCompatActivity {
                     Toast.makeText(activity, "Please,Select Day", Toast.LENGTH_SHORT).show();
                 }
                 else {
+
+                    harufbid = false;
+                    allbid = false;
                     String pattern = "yyyy-MM-dd";
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
@@ -153,6 +166,12 @@ public class BidsHistoryActivity extends AppCompatActivity {
 
                     }
                     bidsl1.setVisibility(View.GONE);
+                    try {
+                        deletestatus = isDeletable();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
                     harufbidsList();
                     //bidsList();
 
@@ -161,48 +180,55 @@ public class BidsHistoryActivity extends AppCompatActivity {
 
             }
         });
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Map<String, String> params = new HashMap<>();
-                params.put(Constant.USER_ID,Id);
-                params.put(Constant.GAME_NAME,spinGameName);
-                params.put(Constant.DATE,date);
-                ApiConfig.RequestToVolley((result, response) -> {
-                    if (result) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                                JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-
-                                Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(activity, HomeActivity.class);
-                                activity.startActivity(intent);
-                                activity.finish();
-                            }
-                            else {
-                                Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (JSONException e){
-                            e.printStackTrace();
-                        }
-                    }
-                    else {
-                        Toast.makeText(activity, String.valueOf(response) +String.valueOf(result), Toast.LENGTH_SHORT).show();
-
-                    }
-                    //pass url
-                }, activity, Constant.DELETE_BIDS_URL, params,true);
-            }
-        });
-
 
 
 
     }
+    private boolean isDeletable() throws ParseException {
+        String[] separated = spinGame.getSelectedItem().toString().split("-");
+        String gameTimestr = separated[1];
+        gameTimestr = date +" "+gameTimestr;
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm a");
+        Calendar currnetDateTime = Calendar.getInstance();
+        try {
+            gameTime_date = df.parse(gameTimestr);
+            currentTime_date = df.parse(df.format(currnetDateTime.getTime()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long diff = gameTime_date.getTime() - currentTime_date.getTime();
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(diff);
+        if (minutes <= 2){
+            return true;
+            //deletestatus = true;
+
+        }
+        else {
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat cdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            String formattedDate = cdf.format(c);
+            if (date.equals(formattedDate))
+            {
+                return false;
+
+            }else {
+                return true;
+            }
+
+            //deletestatus = false;
+        }
+
+    }
+
     private void harufbidsList()
     {
+        bids.clear();
+        bids2.clear();
+        number.clear();
+        andarnum.clear();
+        baharnum.clear();
+        andarBids.clear();
+        baharBids.clear();
 
         harufBids.clear();
         Map<String, String> params = new HashMap<>();
@@ -214,8 +240,14 @@ public class BidsHistoryActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                        btnDelete.setVisibility(View.VISIBLE);
-                        bidsl1.setVisibility(View.VISIBLE);
+                        if (deletestatus){
+                            btnDelete.setVisibility(View.GONE);
+                        }
+                        else {
+                            btnDelete.setVisibility(View.VISIBLE);
+
+                        }
+                        harufbid = true;
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
@@ -269,6 +301,7 @@ public class BidsHistoryActivity extends AppCompatActivity {
         params.put(Constant.GAME_NAME,spinGameName);
         params.put(Constant.DATE,date);
         ApiConfig.RequestToVolley((result, response) -> {
+
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -278,9 +311,15 @@ public class BidsHistoryActivity extends AppCompatActivity {
                     JSONArray innerjsonArray = innerjsonObject.getJSONArray(Constant.DATA);
                     Gson g = new Gson();
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        allbid = true;
                         bidsl1.setVisibility(View.VISIBLE);
-                        btnDelete.setVisibility(View.VISIBLE);
+                        if (deletestatus){
+                            btnDelete.setVisibility(View.GONE);
+                        }
+                        else {
+                            btnDelete.setVisibility(View.VISIBLE);
 
+                        }
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -309,8 +348,25 @@ public class BidsHistoryActivity extends AppCompatActivity {
                             break;
                         }
                     }
-                    bidAdapter = new BidAdapter(activity, bids,bids2,number,andarnum,baharnum,andarBids,baharBids);
-                    recyclerView.setAdapter(bidAdapter);
+                    if (harufbid || allbid){
+                        if (deletestatus){
+                            btnDelete.setVisibility(View.GONE);
+                        }
+                        else {
+                            btnDelete.setVisibility(View.VISIBLE);
+
+                        }
+                        bidAdapter = new BidAdapter(activity, bids,bids2,number,andarnum,baharnum,andarBids,baharBids);
+                        recyclerView.setAdapter(bidAdapter);
+
+                        bidsl1.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        bidsl1.setVisibility(View.GONE);
+                        btnDelete.setVisibility(View.GONE);
+                        Toast.makeText(activity, "No Bids Found", Toast.LENGTH_SHORT).show();
+
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();

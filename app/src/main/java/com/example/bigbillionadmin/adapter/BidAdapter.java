@@ -1,37 +1,27 @@
 package com.example.bigbillionadmin.adapter;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.example.bigbillionadmin.R;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.helper.Session;
 import com.example.bigbillionadmin.model.BIDS;
 import com.example.bigbillionadmin.model.HarufBids;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class BidAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
+    Button btnSubmit;
+    Session session;
     final ArrayList<BIDS> bids;
     final ArrayList<BIDS> bids2;
     final ArrayList<String> number;
@@ -61,6 +51,7 @@ public class BidAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ItemHolder holder = (ItemHolder) holderParent;
         final BIDS bids1 = bids.get(position);
 

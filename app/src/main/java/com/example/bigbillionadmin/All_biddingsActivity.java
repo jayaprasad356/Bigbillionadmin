@@ -78,9 +78,7 @@ public class All_biddingsActivity extends AppCompatActivity {
         tvOddEven=findViewById(R.id.tvOddEven);
         tvHaruf=findViewById(R.id.tvHaruf);
         Functions.setData(activity,spinGame);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
+
         innerresponse = "{\n" +
                 "    \"success\": true,\n" +
                 "    \"message\": \"Bids listed Successfully\",\n" +
@@ -297,6 +295,9 @@ public class All_biddingsActivity extends AppCompatActivity {
                     }
                     if (harufbid || allbid){
                         allBidsAdapter = new AllBidsAdapter(activity, bids,bids2,number,andarnum,baharnum,andarBids,baharBids);
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                        recyclerView.setHasFixedSize(true);
                         recyclerView.setAdapter(allBidsAdapter);
 
                         bidsl1.setVisibility(View.VISIBLE);
@@ -316,50 +317,4 @@ public class All_biddingsActivity extends AppCompatActivity {
 
     }
 
-    private void winnerList(String spinGameName, String date)
-    {
-        tvJodi.setText("Jodi \n0");
-        tvQuickcross.setText("Quick Cross \n0");
-        tvOddEven.setText("Odd Even \n0");
-        tvHaruf.setText("Haruf \n0");
-        transactions.clear();
-        allBidsAdapter.notifyDataSetChanged();
-        Map<String, String> params = new HashMap<>();
-        params.put(Constant.DATE, date);
-        params.put(Constant.GAME_NAME, spinGameName);
-        ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("ALL_BIDS",response);
-            if (result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                        tvJodi.setText("Jodi \n"+jsonObject.getString(Constant.JODI));
-                        tvQuickcross.setText("Quick Cross \n"+jsonObject.getString(Constant.QUICKCROSS));
-                        tvOddEven.setText("Odd Even \n"+jsonObject.getString(Constant.ODDEVEN));
-                        tvHaruf.setText("Haruf \n"+jsonObject.getString(Constant.HARUF));
-                        JSONObject object = new JSONObject(response);
-                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
-                        Gson g = new Gson();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                BIDS group = g.fromJson(jsonObject1.toString(), BIDS.class);
-                                transactions.add(group);
-                            } else {
-                                break;
-                            }
-                        }
-                        recyclerView.setAdapter(allBidsAdapter);
-                    }
-                    else {
-                        Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, activity, Constant.ALL_BIDS_URL, params, true);
-    }
 }

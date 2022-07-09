@@ -97,7 +97,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
         else if (transaction.getType().equals("delete_bids")){
             holder.transimg.setImageResource(R.drawable.coins);
-            holder.tvtitle.setText("Credited  for Deleting Bids");
+            holder.tvtitle.setText("Credited  for Deleting Bids In "+transaction.getGame_name());
             holder.tvTime.setText(transaction.getDate_created());
             holder.tvPoints.setText(transaction.getPoints());
             holder.tvBalance.setText("Balanace "+ transaction.getBalance());
@@ -109,11 +109,39 @@ public class TransactionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             holder.tvTime.setText(transaction.getDate_created());
             holder.tvPoints.setText(transaction.getPoints());
             holder.tvBalance.setText("Balanace "+ transaction.getBalance());
-
         }
         else if (transaction.getType().equals("debit")){
             holder.transimg.setImageResource(R.drawable.coins);
             holder.tvtitle.setText("Debited - "+transaction.getReason());
+            holder.tvTime.setText(transaction.getDate_created());
+            holder.tvPoints.setText(transaction.getPoints());
+            holder.tvBalance.setText("Balanace "+ transaction.getBalance());
+
+        }
+        else if (transaction.getType().equals("wrongresult")){
+            holder.transimg.setImageResource(R.drawable.cross);
+            holder.tvtitle.setText("points deducted due to wrong result of "+transaction.getGame_name());
+            holder.tvTime.setText(transaction.getDate_created());
+            holder.tvPoints.setText(transaction.getPoints());
+            holder.tvBalance.setText("Balanace "+ transaction.getBalance());
+
+        }
+        else if (transaction.getType().equals("correctresult")){
+            holder.transimg.setImageResource(R.drawable.trophy);
+            holder.tvtitle.setText("credited for winning of "+transaction.getGame_name());
+
+            if (transaction.getReason()!=null){
+                if (transaction.getReason().equals("andar")){
+                    holder.tvtitle.setText("credited for winning of "+transaction.getGame_name()+" for andar");
+
+                }
+                else if (transaction.getReason().equals("bahar")){
+                    holder.tvtitle.setText("credited for winning of "+transaction.getGame_name()+" for bahar");
+
+                }
+
+            }
+
             holder.tvTime.setText(transaction.getDate_created());
             holder.tvPoints.setText(transaction.getPoints());
             holder.tvBalance.setText("Balanace "+ transaction.getBalance());
