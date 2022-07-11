@@ -138,6 +138,9 @@ public class Show_biddinsActivity extends AppCompatActivity {
                         recyclerView.setAdapter(biddingUsersAdapter);
                     }
                     else {
+                        tvUsers.setText("Users \n0");
+                        tvPoints.setText("Total Points \n0");
+
                         Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
                     }
 

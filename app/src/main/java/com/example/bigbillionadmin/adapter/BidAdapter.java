@@ -101,7 +101,7 @@ public class BidAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
     @Override
     public int getItemCount() {
-        return 100;
+        return bids.size();
     }
 
     static class ItemHolder extends RecyclerView.ViewHolder {
