@@ -37,7 +37,7 @@ public class UsersActivity extends AppCompatActivity {
     Activity activity;
     EditText etSearch;
     ArrayList<Users> transactions = new ArrayList<>();
-    TextView tvTotalUsers;
+    TextView tvTotalUsers,tvTotalPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,7 @@ public class UsersActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         etSearch = findViewById(R.id.etSearch);
         tvTotalUsers = findViewById(R.id.tvTotalUsers);
+        tvTotalPoints = findViewById(R.id.tvTotalPoints);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -90,6 +91,7 @@ public class UsersActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                         tvTotalUsers.setText("No. Of Users = "+jsonObject.getString(Constant.TOTALUSERS));
+                        tvTotalPoints.setText("Total Points = "+jsonObject.getString(Constant.TOTAL_POINTS));
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
