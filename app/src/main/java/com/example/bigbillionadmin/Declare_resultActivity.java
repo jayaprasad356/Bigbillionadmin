@@ -190,6 +190,7 @@ public class Declare_resultActivity extends AppCompatActivity {
                         Map<String, String> params = new HashMap<>();
                         params.put(Constant.ID, result_id);
                         ApiConfig.RequestToVolley((result, response) -> {
+                            Log.d("DELETE_RESULT",response);
                             if (result) {
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);

@@ -1,5 +1,4 @@
 package com.example.bigbillionadmin.adapter;
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.helper.Session;
 import com.example.bigbillionadmin.model.Transaction;
+import com.example.bigbillionadmin.R;
 
 import java.util.ArrayList;
+
 
 public class TransactionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
@@ -120,7 +119,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
         else if (transaction.getType().equals("wrongresult")){
             holder.transimg.setImageResource(R.drawable.cross);
-            holder.tvtitle.setText("points deducted due to wrong result of "+transaction.getGame_name());
+            holder.tvtitle.setText("points deducted due to wrong result of "+transaction.getGame_name()+" for "+transaction.getGame_type());
             holder.tvTime.setText(transaction.getDate_created());
             holder.tvPoints.setText(transaction.getPoints());
             holder.tvBalance.setText("Balanace "+ transaction.getBalance());
@@ -128,7 +127,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
         else if (transaction.getType().equals("correctresult")){
             holder.transimg.setImageResource(R.drawable.trophy);
-            holder.tvtitle.setText("credited for winning of "+transaction.getGame_name());
+            holder.tvtitle.setText("credited for winning of "+transaction.getGame_name()+" for "+transaction.getGame_type());
 
             if (transaction.getReason()!=null){
                 if (transaction.getReason().equals("andar")){
