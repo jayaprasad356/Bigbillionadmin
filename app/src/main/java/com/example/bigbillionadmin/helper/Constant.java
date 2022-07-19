@@ -1,7 +1,7 @@
 package com.example.bigbillionadmin.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "http://bigbillionenterprises.co.in/";
+    public static final String MainBaseUrl = "http://app.bigbillionenterprises.co.in/";
     //public static final String MainBaseUrl = "http://192.168.43.38/bigbillion/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String POINTS_LIST_URL = BaseUrl + "pointslist.php";
@@ -16,6 +16,7 @@ public class Constant {
     public static final String RESULT_LIST_URL = BaseUrl + "resultlist.php";
     public static final String ADD_RESULT_URL = BaseUrl + "add_result.php";
     public static final String DELETE_RESULT_URL = BaseUrl + "delete_result.php";
+    public static final String ADMIN_LOGIN_URL = BaseUrl + "adminlogin.php";
     public static final String SHARED_POINTS_LIST_URL = BaseUrl + "sharepointlists.php";
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
     public static final String WINNER_LIST_URL = BaseUrl + "winnerlist.php";
@@ -38,6 +39,7 @@ public class Constant {
     public static final String UPI = "upi";
     public static final String NEWSINFO = "newsinfo";
     public static final String USER_ID = "user_id";
+    public static final String PASSWORD = "password";
     public static final String SEARCH = "search";
     public static final String AMOUNT = "amount";
     public static final String MONTH = "month";

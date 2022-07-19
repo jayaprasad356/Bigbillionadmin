@@ -48,7 +48,6 @@ public class All_biddingsActivity extends AppCompatActivity {
     AllBidsAdapter allBidsAdapter;
     RecyclerView recyclerView;
     TextView tvJodi,tvQuickcross,tvOddEven,tvHaruf,tvUsers,tvAmount;
-    ArrayList<BIDS> bids = new ArrayList<>();
     ArrayList<HarufBids> harufBids = new ArrayList<>();
     ArrayList<HarufBids> andarBids = new ArrayList<>();
     ArrayList<HarufBids> baharBids = new ArrayList<>();
@@ -156,7 +155,6 @@ public class All_biddingsActivity extends AppCompatActivity {
 
     private void harufbidsList()
     {
-        bids.clear();
         bids2.clear();
         number.clear();
         andarnum.clear();
@@ -248,7 +246,6 @@ public class All_biddingsActivity extends AppCompatActivity {
 
     private void bidsList()
     {
-        bids.clear();
         Map<String, String> params = new HashMap<>();
         params.put(Constant.GAME_NAME,spinGameName);
         params.put(Constant.DATE,date);
@@ -281,8 +278,10 @@ public class All_biddingsActivity extends AppCompatActivity {
 
 
                     }
+                    ArrayList<BIDS> bids = new ArrayList<>();
                     for (int i = 0; i < 100; i++) {
                         JSONObject jsonObject1 = innerjsonArray.getJSONObject(0);
+
                         if (jsonObject1 != null) {
                             BIDS group = g.fromJson(jsonObject1.toString(), BIDS.class);
                             group.setPoints("0");

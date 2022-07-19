@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bigbillionadmin.helper.ApiConfig;
@@ -25,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     RelativeLayout deposit_req,withdrawal,declare_result,show_biddings,sharing_point,winners,users,settings,all_biddings;
     Activity activity;
     Session session;
+    TextView logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,16 @@ public class HomeActivity extends AppCompatActivity {
         users = findViewById(R.id.users);
         settings = findViewById(R.id.settings);
         all_biddings = findViewById(R.id.all_biddings);
+        logout = findViewById(R.id.logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                session.setBoolean("is_logged_in", false);
+               session.logoutUser(activity);
+
+            }
+        });
 
         deposit_req.setOnClickListener(new View.OnClickListener() {
             @Override

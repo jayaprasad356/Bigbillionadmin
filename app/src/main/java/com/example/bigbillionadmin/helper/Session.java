@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.example.bigbillionadmin.HomeActivity;
 import com.example.bigbillionadmin.MainActivity;
 
 
@@ -39,11 +40,12 @@ public class Session {
         editor.commit();
     }
     public void logoutUser(Activity activity) {
+
         editor.clear();
         editor.commit();
 
 
-        Intent i = new Intent(activity, MainActivity.class);
+        Intent i = new Intent(activity, HomeActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(i);
