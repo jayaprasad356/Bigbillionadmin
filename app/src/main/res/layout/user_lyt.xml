@@ -1,45 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:strokeColor="@color/black"
-    app:strokeWidth="1dp"
+    android:layout_margin="10dp"
     android:padding="10dp"
-    android:layout_margin="10dp">
+    app:strokeColor="@color/black"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:text="Name : "
                     android:textColor="@color/black"
-                    android:text="Name : "/>
+                    android:textSize="18dp" />
+
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textSize="16dp"
-                    android:text="Jaya Prasad"/>
+                    android:text="Jaya Prasad"
+                    android:textSize="16dp" />
 
             </LinearLayout>
+
             <Switch
                 android:id="@+id/switchBlock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"/>
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
 
@@ -47,63 +52,93 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:text="Mobile Number : "
                 android:textColor="@color/black"
-                android:text="Mobile Number : "/>
+                android:textSize="18dp" />
+
             <TextView
                 android:id="@+id/tvMobile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="16dp"
-                android:text="9876543210"/>
+                android:text="9876543210"
+                android:textSize="16dp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:text="Points : "
                 android:textColor="@color/black"
-                android:text="Points : "/>
+                android:textSize="20dp" />
+
             <TextView
                 android:id="@+id/tvPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="16dp"
-                android:text="70 Points"/>
+                android:text="70 Points"
+                android:textSize="16dp" />
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/tvDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:text=""/>
-        <RelativeLayout
+            android:text=""
+            android:textSize="16dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:weightSum="3">
+
             <Button
                 android:id="@+id/btnUpdate"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:padding="0dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Update Wallet"/>
+                android:layout_weight="1"
+                android:textSize="@dimen/dimen_10dp"
+                android:text="Wallet" />
+
             <Button
                 android:id="@+id/btnTransacion"
-                android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Transaction"/>
+                android:layout_width="0dp"
+                android:padding="0dp"
+                android:layout_marginHorizontal="@dimen/dimen_5dp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/dimen_10dp"
 
-        </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1"
+                android:text="Transaction" />
+
+            <Button
+                android:id="@+id/btnView"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/dimen_10dp"
+
+                android:layout_weight="1"
+                android:text="View" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

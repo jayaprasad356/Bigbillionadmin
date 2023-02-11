@@ -1,11 +1,15 @@
 package com.example.bigbillionadmin.adapter;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -13,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bigbillionadmin.ManageWalletActivity;
@@ -21,11 +24,8 @@ import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.TransactionListsActivity;
 import com.example.bigbillionadmin.helper.ApiConfig;
 import com.example.bigbillionadmin.helper.Constant;
-import com.example.bigbillionadmin.model.BIDS;
 import com.example.bigbillionadmin.model.Users;
-import com.google.gson.Gson;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -81,6 +81,12 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 activity.startActivity(intent);
             }
         });
+        holder.btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBandDetails(user);
+            }
+        });
         holder.switchBlock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -99,7 +105,33 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
     }
+    private void showBandDetails(Users user) {
+        Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.bank_detail_popup);
+        dialog.getWindow().setGravity(Gravity.CENTER);
+        dialog.setCancelable(true);
+        TextView tvAcNo, tvIfsc, tvPaytm, tvPhonepe;
+       tvAcNo = dialog.findViewById(R.id.tvAccountNumber);
+        tvIfsc = dialog.findViewById(R.id.tvIFSC);
+        tvPaytm = dialog.findViewById(R.id.tvPaytm);
+        tvPhonepe = dialog.findViewById(R.id.tvPhonepe);
+        tvAcNo.setText(": "+user.getAccount_number());
+        tvIfsc.setText(": "+user.getIfsc_code());
+        tvPaytm.setText(": "+user.getPaytm());
+        tvPhonepe.setText(": "+user.getPhonepe());
 
+        Window window = dialog.getWindow();
+        if (window != null) {
+            window.setBackgroundDrawable(activity.getDrawable(R.drawable.popup_background)); // Set the corner radius to 20dp
+        }
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+    }
     private void blockUserApi(String user_id, String user_status)
     {
         Map<String, String> params = new HashMap<>();
@@ -137,7 +169,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView tvName,tvMobile,tvPoints,tvDateTime;
-        Button btnUpdate,btnTransacion;
+        Button btnUpdate,btnTransacion,btnView;
         Switch switchBlock;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -148,6 +180,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             btnUpdate = itemView.findViewById(R.id.btnUpdate);
             btnTransacion = itemView.findViewById(R.id.btnTransacion);
             switchBlock = itemView.findViewById(R.id.switchBlock);
+            btnView=itemView.findViewById(R.id.btnView);
 
 
 

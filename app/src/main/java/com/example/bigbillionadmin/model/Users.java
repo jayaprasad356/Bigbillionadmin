@@ -1,7 +1,40 @@
 package com.example.bigbillionadmin.model;
 
 public class Users {
-    String id,name,mobile,points,earn,date_created,user_status;
+    String id,name,mobile,points,earn,date_created,user_status,account_number,ifsc_code,paytm,phonepe;
+
+    public String getAccount_number() {
+        return account_number;
+    }
+
+    public void setAccount_number(String account_number) {
+        this.account_number = account_number;
+    }
+
+    public String getIfsc_code() {
+        return ifsc_code;
+    }
+
+    public void setIfsc_code(String ifsc_code) {
+        this.ifsc_code = ifsc_code;
+    }
+
+    public String getPaytm() {
+        return paytm;
+    }
+
+    public void setPaytm(String paytm) {
+        this.paytm = paytm;
+    }
+
+    public String getPhonepe() {
+        return phonepe;
+    }
+
+    public void setPhonepe(String phonepe) {
+        this.phonepe = phonepe;
+    }
+
     public Users(){
 
     }
