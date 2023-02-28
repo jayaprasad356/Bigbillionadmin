@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bigbillionadmin.EditUserActivity;
 import com.example.bigbillionadmin.ManageWalletActivity;
 import com.example.bigbillionadmin.R;
 import com.example.bigbillionadmin.TransactionListsActivity;
@@ -104,6 +105,20 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         });
 
 
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(activity, EditUserActivity.class);
+                intent.putExtra("id",user.getId());
+                intent.putExtra("name",user.getName());
+                activity.startActivity(intent);
+
+            }
+        });
+
+
     }
     private void showBandDetails(Users user) {
         Dialog dialog = new Dialog(activity);
@@ -169,7 +184,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     static class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView tvName,tvMobile,tvPoints,tvDateTime;
-        Button btnUpdate,btnTransacion,btnView;
+        Button btnUpdate,btnTransacion,btnView,btnEdit;
         Switch switchBlock;
         public ItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -181,6 +196,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             btnTransacion = itemView.findViewById(R.id.btnTransacion);
             switchBlock = itemView.findViewById(R.id.switchBlock);
             btnView=itemView.findViewById(R.id.btnView);
+            btnEdit = itemView.findViewById(R.id.btnEdit);
 
 
 

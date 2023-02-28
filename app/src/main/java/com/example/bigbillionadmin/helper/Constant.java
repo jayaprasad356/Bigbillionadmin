@@ -21,6 +21,7 @@ public class Constant {
     public static final String ADMIN_LOGIN_URL = BaseUrl + "adminlogin.php";
     public static final String SHARED_POINTS_LIST_URL = BaseUrl + "sharepointlists.php";
     public static final String USERS_LIST_URL = BaseUrl + "userslist.php";
+    public static final String UPDATE_USERS_ADMIN_URL = BaseUrl + "update_user_admin.php";
     public static final String WINNER_LIST_URL = BaseUrl + "winnerlist.php";
     public static final String BIDS_USER_URL = BaseUrl + "bidsuserlist.php";
     public static final String ALL_BIDS_URL = BaseUrl + "allbids.php";
@@ -84,4 +85,8 @@ public class Constant {
     public static final String PHONEPE = "phonepe";
 
 
+    public static final String MIN_DEPOSIT = "min_deposit";
+
+    public static final String MIN_WITHDRAWAL = "min_withdrawal";
+    public static final String MAX_WITHDRAWAL = "max_withdrawal";
 }

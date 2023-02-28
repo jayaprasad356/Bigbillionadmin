@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
-    EditText whatsapp,youtube,upi,newsinfo;
+    EditText whatsapp,youtube,upi,newsinfo,etMinWithdrawal,etMaxWithdrawal,etMinDeposite;
     Button btnUpdate;
     Activity activity;
     Session session;
@@ -35,6 +35,9 @@ public class SettingsActivity extends AppCompatActivity {
         session = new Session(activity);
         whatsapp = findViewById(R.id.whatsapp);
         youtube = findViewById(R.id.youtube);
+        etMinDeposite = findViewById(R.id.etMinDeposite);
+        etMinWithdrawal = findViewById(R.id.etMinWithdrawal);
+        etMaxWithdrawal = findViewById(R.id.etMaxWithdrawal);
         upi = findViewById(R.id.upi);
         newsinfo = findViewById(R.id.newsinfo);
         btnUpdate = findViewById(R.id.btnUpdate);
@@ -57,6 +60,9 @@ public class SettingsActivity extends AppCompatActivity {
         params.put(Constant.YOUTUBE_LINK, youtube.getText().toString().trim());
         params.put(Constant.UPI, upi.getText().toString().trim());
         params.put(Constant.NEWSINFO, newsinfo.getText().toString().trim());
+        params.put(Constant.MIN_DEPOSIT, etMinDeposite.getText().toString().trim());
+        params.put(Constant.MIN_WITHDRAWAL, etMinWithdrawal.getText().toString().trim());
+        params.put(Constant.MAX_WITHDRAWAL, etMaxWithdrawal.getText().toString().trim());
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
