@@ -125,11 +125,15 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         dialog.setContentView(R.layout.bank_detail_popup);
         dialog.getWindow().setGravity(Gravity.CENTER);
         dialog.setCancelable(true);
-        TextView tvAcNo, tvIfsc, tvPaytm, tvPhonepe;
+        TextView tvAcNo, tvIfsc, tvPaytm, tvPhonepe,tvName,tvHolderName;
        tvAcNo = dialog.findViewById(R.id.tvAccountNumber);
         tvIfsc = dialog.findViewById(R.id.tvIFSC);
         tvPaytm = dialog.findViewById(R.id.tvPaytm);
         tvPhonepe = dialog.findViewById(R.id.tvPhonepe);
+        tvName = dialog.findViewById(R.id.tvName);
+        tvHolderName = dialog.findViewById(R.id.tvHolderName);
+        tvName.setText(": "+user.getName());
+        tvHolderName.setText(": "+user.getHolder_name());
         tvAcNo.setText(": "+user.getAccount_number());
         tvIfsc.setText(": "+user.getIfsc_code());
         tvPaytm.setText(": "+user.getPaytm());
