@@ -49,9 +49,6 @@ public class EditUserActivity extends AppCompatActivity {
         getid = getIntent().getStringExtra("id");
         getname = getIntent().getStringExtra("name");
 
-
-        Toast.makeText(activity, "HI"+getid, Toast.LENGTH_SHORT).show();
-
         Name = findViewById(R.id.Name);
         btnUpdate = findViewById(R.id.btnUpdate);
         backbtn = findViewById(R.id.backbtn);
@@ -81,11 +78,6 @@ public class EditUserActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                                JSONObject object = new JSONObject(response);
-                                JSONArray jsonArray = object.getJSONArray(Constant.DATA);
-                                Gson g = new Gson();
-
-
                                 Toast.makeText(activity, ""+jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
 
                             }

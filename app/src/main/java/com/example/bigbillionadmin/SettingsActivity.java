@@ -45,6 +45,9 @@ public class SettingsActivity extends AppCompatActivity {
         youtube.setText(session.getData(Constant.YOUTUBE_LINK));
         upi.setText(session.getData(Constant.UPI));
         newsinfo.setText(session.getData(Constant.NEWSINFO));
+        etMinWithdrawal.setText(session.getData(Constant.MIN_WITHDRAWAL));
+        etMaxWithdrawal.setText(session.getData(Constant.MAX_WITHDRAWAL));
+        etMinDeposite.setText(session.getData(Constant.MIN_DEPOSIT));
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +76,9 @@ public class SettingsActivity extends AppCompatActivity {
                         session.setData(Constant.YOUTUBE_LINK,jsonArray.getJSONObject(0).getString(Constant.YOUTUBE_LINK));
                         session.setData(Constant.UPI,jsonArray.getJSONObject(0).getString(Constant.UPI));
                         session.setData(Constant.NEWSINFO,jsonArray.getJSONObject(0).getString(Constant.NEWSINFO));
+                        session.setData(Constant.MIN_WITHDRAWAL,jsonArray.getJSONObject(0).getString(Constant.MIN_WITHDRAWAL));
+                        session.setData(Constant.MAX_WITHDRAWAL,jsonArray.getJSONObject(0).getString(Constant.MAX_WITHDRAWAL));
+                        session.setData(Constant.MIN_DEPOSIT,jsonArray.getJSONObject(0).getString(Constant.MIN_DEPOSIT));
                         Toast.makeText(this, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(activity, HomeActivity.class);
                         startActivity(intent);

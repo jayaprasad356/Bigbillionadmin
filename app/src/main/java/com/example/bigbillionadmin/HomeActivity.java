@@ -143,6 +143,9 @@ public class HomeActivity extends AppCompatActivity {
                         session.setData(Constant.WHATSAPP_NUM,jsonArray.getJSONObject(0).getString(Constant.WHATSAPP_NUM));
                         session.setData(Constant.YOUTUBE_LINK,jsonArray.getJSONObject(0).getString(Constant.YOUTUBE_LINK));
                         session.setData(Constant.UPI,jsonArray.getJSONObject(0).getString(Constant.UPI));
+                        session.setData(Constant.MIN_WITHDRAWAL,jsonArray.getJSONObject(0).getString(Constant.MIN_WITHDRAWAL));
+                        session.setData(Constant.MAX_WITHDRAWAL,jsonArray.getJSONObject(0).getString(Constant.MAX_WITHDRAWAL));
+                        session.setData(Constant.MIN_DEPOSIT,jsonArray.getJSONObject(0).getString(Constant.MIN_DEPOSIT));
 
                     } else {
                         Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
