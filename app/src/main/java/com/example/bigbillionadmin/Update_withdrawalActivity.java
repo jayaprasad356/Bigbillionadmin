@@ -33,6 +33,13 @@ public class Update_withdrawalActivity extends AppCompatActivity {
     String tvAccountNumber_,tvIFSC_,tvHolderName_,tvPaytm_,tvPhonepe_;
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(activity, WithdrawalActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_withdrawal);

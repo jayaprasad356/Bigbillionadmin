@@ -71,6 +71,7 @@ public class WithdrawalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 intent.putExtra(Constant.PAYTM,withdrawal.getPaytm());
                 intent.putExtra(Constant.PHONEPE,withdrawal.getPhonepe());
                 activity.startActivity(intent);
+                activity.finish();
             }
         });
 
